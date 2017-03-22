@@ -6,8 +6,10 @@
   <template>
     <style></style>
 
-    <mf-class-name name="BodyAttack"></mf-class-name>
-    <mf-timeslot-card time="1100"></mf-timeslot-card>
+    <template is="dom-repeat" items="[[classes]]">
+      <mf-class-name name="[[item.className]]"></mf-class-name>
+      <mf-timeslot-card times="[[item.times]]"></mf-timeslot-card>
+    </template>
 
   </template>
   <script>
@@ -15,7 +17,9 @@
       static get is() { return 'mf-class'; }
 
       static get properties() {
-        return {}
+        return {
+          classes: Array,
+        }
       }
 
       static get observers() {

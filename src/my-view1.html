@@ -12,14 +12,120 @@
       }
     </style>
 
-    <mf-club></mf-club>
+    <mf-club data="[[clubData]]"></mf-club>
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
+      static get properties() {
+        return {
+          clubData: {
+            type: Array,
+            value: testClubData,
+          }
+        }
+      }
+
+      // static get observers() {
+      //   return ['checkClubData(clubData)']
+      // }
+      // checkClubData(clubData) {
+        // console.log("ClubData:", clubData)
+      // }
     }
+
+    const testClubData =
+    [
+      {
+        gymName:"George St",
+        classes:[
+          {
+            className: "BODYATTACK",
+            times:[
+              {
+                startTime: 1100,
+                endTime: 1200,
+              },
+              {
+                startTime: 1800,
+                endTime: 1900,
+              },
+            ],
+            description: "This is the BodyAttack description",
+          },
+          {
+            className: "HOT YOGA",
+            times:[
+              {
+                startTime: 0900,
+                endTime: 1000,
+              },
+              {
+                startTime: 1700,
+                endTime: 1800,
+              },
+            ],
+            description: "This is the HotYoga description",
+          },
+        ],
+      },
+      {
+        gymName:"Barangaroo",
+        classes:[
+          {
+            className: "BODYATTACK",
+            times:[
+              {
+                startTime: 1600,
+                endTime: 1700,
+              },
+              {
+                startTime: 1900,
+                endTime: 2000,
+              },
+            ],
+            description: "This is the BodyAttack description",
+          },
+          {
+            className: "HOT YOGA",
+            times:[
+              {
+                startTime: 0800,
+                endTime: 0900,
+              },
+              {
+                startTime: 1800,
+                endTime: 1900,
+              },
+            ],
+            description: "This is the HotYoga description",
+          },
+        ],
+      },
+    ]
+    // console.log("clubData", this.clubData)
 
     window.customElements.define(MyView1.is, MyView1);
   </script>
 </dom-module>
+<!-- [
+      {
+        gymName: "BARANGAROOOOO",
+        classes: [
+          {
+            className: "BODYATTACK",
+            times: [
+              {
+                startTime: 1100,
+                endTime: 1200,
+              },
+              {
+                startTime: 1100,
+                endTime: 1200,
+              },
+            ],
+          }
+        ]
+      }
+    ] -->

@@ -4,7 +4,7 @@
   <template>
     <style></style>
 
-    <h1>Bondi</h1>
+    <h1>{{name}}</h1>
 
   </template>
   <script>
@@ -12,7 +12,9 @@
       static get is() { return 'mf-club-name'; }
 
       static get properties() {
-        return {}
+        return {
+          name: String
+        }
       }
 
       static get observers() {

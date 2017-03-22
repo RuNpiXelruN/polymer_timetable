@@ -13,10 +13,14 @@
 
     </style>
 
-    <div class="card-wrapper">
-      <div class="time">[[time]]</div>
-      <div class="info">More Info</div>
-    </div>
+    <template is="dom-repeat" items="[[times]]">
+
+      <div class="card-wrapper">
+        <div class="time">[[item.startTime]]</div>
+        <div class="info">More Info</div>
+      </div>
+
+    </template>
 
   </template>
   <script>
@@ -25,19 +29,19 @@
 
       static get properties() {
         return {
-          time: {
-            type: String,
+          times: {
+            type: Array,
           },
         }
       }
 
-      static get observers() {
-        return ['timeData(time, width)']
-      }
-
-      timeData(time) {
-        console.log("time:", time)
-      }
+      // static get observers() {
+      //   return ['logTimes(times)']
+      // }
+      //
+      // logTimes(times) {
+      //   console.log("times:", times)
+      // }
     }
 
     window.customElements.define(MfTimeslotCard.is, MfTimeslotCard);

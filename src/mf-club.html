@@ -6,8 +6,10 @@
   <template>
     <style></style>
 
-    <mf-club-name></mf-club-name>
-    <mf-class></mf-class>
+    <template is="dom-repeat" items="[[data]]">
+      <mf-club-name name="[[item.gymName]]"></mf-club-name>
+      <mf-class classes="[[item.classes]]"></mf-class>
+    </template>
 
   </template>
   <script>
@@ -15,11 +17,19 @@
       static get is() { return 'mf-club'; }
 
       static get properties() {
-        return {}
+        return {
+          data: {
+            type: Array,
+          }
+        }
       }
 
       static get observers() {
-        return []
+        return ['logData(data)']
+      }
+
+      logData(data) {
+        console.log("Data:", data)
       }
     }
 

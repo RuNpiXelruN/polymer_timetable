@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="mf-class.html">
+<link rel="import" href="mf-club-name.html">
+
+<dom-module id="mf-club">
+  <template>
+    <style></style>
+
+    <mf-club-name></mf-club-name>
+    <mf-class></mf-class>
+
+  </template>
+  <script>
+    class MfClub extends Polymer.Element {
+      static get is() { return 'mf-club'; }
+
+      static get properties() {
+        return {}
+      }
+
+      static get observers() {
+        return []
+      }
+    }
+
+    window.customElements.define(MfClub.is, MfClub)
+  </script>
+</dom-module>

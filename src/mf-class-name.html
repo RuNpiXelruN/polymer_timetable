@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="mf-class-name">
+  <template>
+    <style></style>
+
+    <div class="className-wrapper">
+      <div class="name">[[name]]</div>
+    </div>
+
+  </template>
+  <script>
+  class MfClassName extends Polymer.Element {
+    static get is() { return 'mf-class-name'; }
+
+    static get properties() {
+      return {
+        name: {
+          type: String,
+        }
+      }
+    }
+
+    static get observers() {
+      return ['nameData(name)']
+    }
+
+    nameData(name) {
+      console.log("name:", name)
+    }
+  }
+
+  window.customElements.define(MfClassName.is, MfClassName)
+  </script>
+</dom-module>

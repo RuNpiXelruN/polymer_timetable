@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="mf-timeslot-card.html">
+<link rel="import" href="mf-class-name.html">
+
+<dom-module id="mf-class">
+  <template>
+    <style></style>
+
+    <mf-class-name name="BodyAttack"></mf-class-name>
+    <mf-timeslot-card time="1100"></mf-timeslot-card>
+
+  </template>
+  <script>
+    class MfClass extends Polymer.Element {
+      static get is() { return 'mf-class'; }
+
+      static get properties() {
+        return {}
+      }
+
+      static get observers() {
+        return []
+      }
+    }
+
+    window.customElements.define(MfClass.is, MfClass)
+  </script>
+</dom-module>

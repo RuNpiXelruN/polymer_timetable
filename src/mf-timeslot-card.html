@@ -1,0 +1,45 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="mf-timeslot-card">
+  <template>
+    <style>
+
+      .card-wrapper {
+        box-shadow: 0 0 3px 3px rgba(200,200,200,0.5);
+        display: inline-block;
+        padding: 5px;
+        width: 100px;
+      }
+
+    </style>
+
+    <div class="card-wrapper">
+      <div class="time">[[time]]</div>
+      <div class="info">More Info</div>
+    </div>
+
+  </template>
+  <script>
+    class MfTimeslotCard extends Polymer.Element {
+      static get is() { return 'mf-timeslot-card'; }
+
+      static get properties() {
+        return {
+          time: {
+            type: String,
+          },
+        }
+      }
+
+      static get observers() {
+        return ['timeData(time, width)']
+      }
+
+      timeData(time) {
+        console.log("time:", time)
+      }
+    }
+
+    window.customElements.define(MfTimeslotCard.is, MfTimeslotCard);
+  </script>
+</dom-module>

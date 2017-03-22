@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="mf-club-name">
+  <template>
+    <style></style>
+
+    <h1>Bondi</h1>
+
+  </template>
+  <script>
+    class MfClubName extends Polymer.Element {
+      static get is() { return 'mf-club-name'; }
+
+      static get properties() {
+        return {}
+      }
+
+      static get observers() {
+        return []
+      }
+    }
+
+    window.customElements.define(MfClubName.is, MfClubName)
+  </script>
+</dom-module>

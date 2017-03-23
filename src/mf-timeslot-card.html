@@ -5,7 +5,7 @@
     <style>
 
       .card-wrapper {
-        box-shadow: 0 0 3px 3px rgba(200,200,200,0.5);
+        box-shadow: 0 0 20px 1px rgba(200,200,200,0.3);
         display: inline-block;
         padding: 5px;
         width: 100px;
@@ -17,7 +17,7 @@
 
     <template is="dom-repeat" items="[[times]]">
 
-      <div class="card-wrapper" style$="margin-left: {{_computeMarginLeft(item.startTime, item.day)}}px;">
+      <div id$="{{_computeId(item.startTime)}}"class="card-wrapper" style$="margin-left: {{_computeMarginLeft(item.startTime, item.day)}}px;">
         <div class="time">[[item.startTime]]</div>
         <div class="info">More Info</div>
       </div>
@@ -38,17 +38,33 @@
             type: Number,
             value: 100,
             reflectToAttribute: true
+          },
+          keysArr: {
+            type: Array,
           }
         }
       }
 
-      // static get observers() {
-      //   return ['logTimes(day)']
-      // }
-      //
-      // logTimes(day) {
-      //   console.log("times:", day)
-      // }
+      static get observers() {
+        return [
+          // 'logKeysArr(keysArr)'
+          'logTimes(times)',
+        ]
+      }
+
+      _computeId(time) {
+        var sT
+        sT = time.toString()
+        console.log(this.keysArr)
+        return this.keysArr.indexOf(sT)
+      }
+      logKeysArr(keysArr) {
+        console.log("??", keysArr)
+      }
+
+      logTimes(times) {
+        console.log(times.length)
+      }
 
       _computeMarginLeft(time, day) {
         var classTime = [];

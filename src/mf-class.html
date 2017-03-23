@@ -10,14 +10,13 @@
       }
       .horiz-wrapper {
         height: 100px;
-        overflow-x: scroll;
       }
     </style>
 
     <template is="dom-repeat" items="[[classes]]">
       <div class="horiz-wrapper">
         <mf-class-name name="[[item.className]]"></mf-class-name>
-        <mf-timeslot-card times="[[item.times]]"></mf-timeslot-card>
+        <mf-timeslot-card times="[[item.times]]" keys-arr="[[keysArr]]"></mf-timeslot-card>
       </div>
     </template>
 
@@ -28,21 +27,44 @@
 
       static get properties() {
         return {
-          classes: Array,
+          classes: {
+            type: Array,
+          },
+          classData: {
+            type: Object,
+          },
+          keysArr: {
+            type: Array,
+          }
         }
       }
 
       static get observers() {
-        return ['logClasses(classes)']
+        return [
+          // 'logKeysArr(keysArr)'
+          // 'logClasses(classes)',
+          // 'logClassData(classData)',
+         ]
+      }
+
+      logKeysArr(keysArr) {
+        console.log("keysArr",keysArr)
       }
       logClasses(classes) {
-        // console.log("Classes", classes)
+        console.log("Classes", classes)
       }
 
       connectedCallback() {
         super.connectedCallback()
-        console.log("connected")
-        console.log(this.classes.length)
+        var classData = this.classData
+
+        var keysArr = []
+        keysArr = Object.keys(classData)
+        this.set('keysArr', keysArr)
+      }
+
+      logClassData(classData) {
+        console.log("classData?????????", classData)
       }
     }
 

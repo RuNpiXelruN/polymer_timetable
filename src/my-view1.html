@@ -22,17 +22,17 @@
         font-weight: 100;
         margin-left: 60px;
       }
-
     </style>
-    <mf-calendar-days></mf-calendar-days>
 
+    <mf-calendar-days></mf-calendar-days>
     <div class="date-heading">Thursday 14 April</div>
 
     <div class="timescale-days">
       <mf-time-scale></mf-time-scale>
       <mf-time-scale></mf-time-scale>
     </div>
-    <mf-club data="[[clubData]]" dayCount="2"></mf-club>
+
+    <mf-club data="[[clubData]]"></mf-club>
   </template>
 
   <script>
@@ -58,7 +58,7 @@
     const testClubData =
     [
       {
-        gymName:"George St",
+        gymName:"Sydney CBD - George St",
         classes:[
           {
             className: "BODYATTACK",
@@ -100,7 +100,7 @@
         ],
       },
       {
-        gymName:"Barangaroo",
+        gymName:"Sydney CBD - Barangaroo Titanium",
         classes:[
           {
             className: "BODYATTACK",

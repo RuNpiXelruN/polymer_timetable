@@ -12,7 +12,7 @@
 
     <template is="dom-repeat" items="[[data]]">
       <mf-club-name name="[[item.gymName]]"></mf-club-name>
-      <mf-class classes="[[item.classes]]"></mf-class>
+      <mf-class classes="[[item.classes]]" class-data="[[classData]]"></mf-class>
     </template>
 
   </template>
@@ -25,25 +25,43 @@
           data: {
             type: Array,
           },
-          dayCount: {
-            type: Number,
+          classData: {
+            type: Object,
           }
         }
       }
 
       static get observers() {
         return [
-          'logData(data)',
-          'logDayCount(dayCount)'
+          // 'logData(data)',
+          // 'logClassData(classData)'
         ]
+      }
+
+      logClassData(classData) {
+        console.log("CLASS DATA:", classData)
       }
 
       logData(data) {
         console.log("Data:", data)
       }
 
-      logDayCount(dayCount) {
-        console.log("dayCount",dayCount)
+      connectedCallback() {
+        super.connectedCallback()
+        var data = this.data
+        var i, j, k
+        var newClassData = {}
+        for ( i = 0; i < data.length; i++) {
+          var classDataAll = data[i].classes
+          for (j = 0; j < classDataAll.length; j++) {
+            var classData = classDataAll[j]
+            for (k = 0; k < classData.times.length; k++) {
+              var timeKey = classData.times[k].startTime
+              newClassData[timeKey] = [{day: classData.times[k].day, className: classData.className}]
+            }
+          }
+        }
+        this.set('classData', newClassData)
       }
     }
 

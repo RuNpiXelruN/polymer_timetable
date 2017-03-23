@@ -1,0 +1,55 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="mf-time-scale">
+  <template>
+    <style>
+      .timescale-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        width: 1500px;
+        border-bottom: 2px solid rgba(200,200,200,0.3);
+      }
+
+      .hour-block {
+        width: 100px;
+        padding: 10px 0 30px 10px;
+        box-sizing: border-box;
+        border-right: 2px solid rgba(200,200,200,0.3);
+      }
+    </style>
+    <div class="timescale-wrapper">
+      <div class="hour-block">6am</div>
+      <div class="hour-block">7am</div>
+      <div class="hour-block">8am</div>
+      <div class="hour-block">9am</div>
+      <div class="hour-block">10am</div>
+      <div class="hour-block">11am</div>
+      <div class="hour-block">12pm</div>
+      <div class="hour-block">1pm</div>
+      <div class="hour-block">2pm</div>
+      <div class="hour-block">3pm</div>
+      <div class="hour-block">4pm</div>
+      <div class="hour-block">5pm</div>
+      <div class="hour-block">6pm</div>
+      <div class="hour-block">7pm</div>
+      <div class="hour-block">8pm</div>
+    </div>
+
+  </template>
+  <script>
+    class MfTimeScale extends Polymer.Element {
+      static get is() { return 'mf-time-scale'; }
+
+      static get properties() {
+        return {}
+      }
+
+      static get observers() {
+        return []
+      }
+    }
+
+    window.customElements.define(MfTimeScale.is, MfTimeScale)
+  </script>
+</dom-module>

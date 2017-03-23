@@ -1,0 +1,110 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="mf-calendar-days">
+  <template>
+    <style>
+      .fix-container {
+        position: relative;
+      }
+      .days-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 500px;
+        margin-bottom: 20px;
+      }
+      .cal-day {
+        display: inline-flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        text-align: center;
+      }
+      .dateNo {
+        font-style: italic;
+        margin-left: 2px;
+      }
+      .current-day {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+    <div class="fix-container">
+      <div class="days-wrapper">
+        <div class="cal-day">
+          <span>Tue</span>
+          <span class="dateNo">12</span>
+        </div>
+        <div class="cal-day">
+          <span>Wed</span>
+          <span class="dateNo">13</span>
+        </div>
+        <div class="cal-day">
+          <span>Thu</span>
+          <span class="dateNo current-day">14</span>
+        </div>
+        <div class="cal-day">
+          <span>Fri</span>
+          <span class="dateNo">15</span>
+        </div>
+        <div class="cal-day">
+          <span>Sat</span>
+          <span class="dateNo">16</span>
+        </div>
+        <div class="cal-day">
+          <span>Sun</span>
+          <span class="dateNo">17</span>
+        </div>
+        <div class="cal-day">
+          <span>Mon</span>
+          <span class="dateNo">18</span>
+        </div>
+        <div class="cal-day">
+          <span>Tue</span>
+          <span class="dateNo">19</span>
+        </div>
+        <div class="cal-day">
+          <span>Wed</span>
+          <span class="dateNo">20</span>
+        </div>
+        <div class="cal-day">
+          <span>Thu</span>
+          <span class="dateNo">21</span>
+        </div>
+        <div class="cal-day">
+          <span>Fri</span>
+          <span class="dateNo">22</span>
+        </div>
+        <div class="cal-day">
+          <span>Sat</span>
+          <span class="dateNo">23</span>
+        </div>
+        <div class="cal-day">
+          <span>Sun</span>
+          <span class="dateNo">24</span>
+        </div>
+        <div class="cal-day">
+          <span>Mon</span>
+          <span class="dateNo">25</span>
+        </div>
+      </div>
+    </div>
+
+
+  </template>
+  <script>
+    class MfCalendarDays extends Polymer.Element {
+      static get is() { return 'mf-calendar-days'; }
+
+      static get properties() {
+        return {}
+      }
+
+      static get observers() {
+        return []
+      }
+    }
+
+    window.customElements.define(MfCalendarDays.is, MfCalendarDays)
+  </script>
+</dom-module>

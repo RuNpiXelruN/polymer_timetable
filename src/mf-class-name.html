@@ -2,10 +2,26 @@
 
 <dom-module id="mf-class-name">
   <template>
-    <style></style>
+    <style>
+      .className-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        background: #f1f1f1;
+        box-sizing: border-box;
+        padding: 20px 10px;
+      }
+      .name {
+        font-size: 10px;
+        position: sticky;
+        display: inline-block;
+        top: 0;
+        left: 0;
+      }
+    </style>
 
     <div class="className-wrapper">
-      <div class="name">[[name]]</div>
+      <div class="name">{{name}}</div>
     </div>
 
   </template>

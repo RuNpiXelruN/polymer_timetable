@@ -4,11 +4,21 @@
 
 <dom-module id="mf-class">
   <template>
-    <style></style>
+    <style>
+      :host {
+        overflow-x: scroll;
+      }
+      .horiz-wrapper {
+        height: 100px;
+        overflow-x: scroll;
+      }
+    </style>
 
     <template is="dom-repeat" items="[[classes]]">
-      <mf-class-name name="[[item.className]]"></mf-class-name>
-      <mf-timeslot-card times="[[item.times]]"></mf-timeslot-card>
+      <div class="horiz-wrapper">
+        <mf-class-name name="[[item.className]]"></mf-class-name>
+        <mf-timeslot-card times="[[item.times]]"></mf-timeslot-card>
+      </div>
     </template>
 
   </template>
@@ -23,7 +33,16 @@
       }
 
       static get observers() {
-        return []
+        return ['logClasses(classes)']
+      }
+      logClasses(classes) {
+        // console.log("Classes", classes)
+      }
+
+      connectedCallback() {
+        super.connectedCallback()
+        console.log("connected")
+        console.log(this.classes.length)
       }
     }
 

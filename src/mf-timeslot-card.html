@@ -9,13 +9,15 @@
         display: inline-block;
         padding: 5px;
         width: 100px;
+        box-sizing: border-box;
+        position: absolute;
       }
 
     </style>
 
     <template is="dom-repeat" items="[[times]]">
 
-      <div class="card-wrapper">
+      <div class="card-wrapper" style$="margin-left: {{_computeMarginLeft(item.startTime, item.day)}}px;">
         <div class="time">[[item.startTime]]</div>
         <div class="info">More Info</div>
       </div>
@@ -32,16 +34,53 @@
           times: {
             type: Array,
           },
+          width: {
+            type: Number,
+            value: 100,
+            reflectToAttribute: true
+          }
         }
       }
 
       // static get observers() {
-      //   return ['logTimes(times)']
+      //   return ['logTimes(day)']
       // }
       //
-      // logTimes(times) {
-      //   console.log("times:", times)
+      // logTimes(day) {
+      //   console.log("times:", day)
       // }
+
+      _computeMarginLeft(time, day) {
+        var classTime = [];
+        var minutes;
+        var minsDivide;
+        var formattedTime;
+        var timeArray = time.toString().split('');
+
+        if (timeArray.length === 3) {
+          classTime.push(timeArray[0])
+        } else {
+          classTime.push(timeArray[0],timeArray[1])
+        }
+
+        minutes = time.toString().match(/..$/)[0]
+
+        if (minutes/60 === 0) {
+          minsDivide = ".0"
+          classTime.push(minsDivide)
+        } else {
+          minsDivide = (minutes/60).toString().split('0').slice(1)
+          classTime.push(minsDivide.join())
+        }
+
+        formattedTime = classTime.join('')
+        if (day === 2) {
+          // 1400 per day
+          return ((formattedTime - 6) * 100) + 1500 // includes initial margin-left of 100px.
+        } else {
+          return (formattedTime - 6) * 100
+        }
+      }
     }
 
     window.customElements.define(MfTimeslotCard.is, MfTimeslotCard);

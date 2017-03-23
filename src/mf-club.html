@@ -4,7 +4,11 @@
 
 <dom-module id="mf-club">
   <template>
-    <style></style>
+    <style>
+      :host {
+        overflow-x: scroll;
+      }
+    </style>
 
     <template is="dom-repeat" items="[[data]]">
       <mf-club-name name="[[item.gymName]]"></mf-club-name>
@@ -20,16 +24,26 @@
         return {
           data: {
             type: Array,
+          },
+          dayCount: {
+            type: Number,
           }
         }
       }
 
       static get observers() {
-        return ['logData(data)']
+        return [
+          'logData(data)',
+          'logDayCount(dayCount)'
+        ]
       }
 
       logData(data) {
         console.log("Data:", data)
+      }
+
+      logDayCount(dayCount) {
+        console.log("dayCount",dayCount)
       }
     }
 

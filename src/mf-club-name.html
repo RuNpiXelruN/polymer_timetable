@@ -2,9 +2,29 @@
 
 <dom-module id="mf-club-name">
   <template>
-    <style></style>
+    <style>
+      .name-wrapper {
+        position: relative;
+        width: 3100px;
+        background: #3c3c3b;
+        margin-bottom: 20px;
+        
+      }
+      h1 {
+        color: #cbcbcb;
+        position: sticky;
+        display: inline-block;
+        top: 0;
+        left: 0;
+        font-size: 13px;
+        padding: 10px;
+        margin: 0;
+      }
+    </style>
 
-    <h1>{{name}}</h1>
+    <div class="name-wrapper">
+      <h1>{{name}}</h1>
+    </div>
 
   </template>
   <script>
